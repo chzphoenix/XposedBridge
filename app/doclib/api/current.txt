@@ -25,18 +25,18 @@ package android.content.res {
     method public android.content.res.Resources getResources();
   }
 
-  public class XResources extends android.content.res.Resources {
+  public class XResources extends xp.dummy.XResourcesSuperClass {
     method public int addResource(android.content.res.Resources, int);
     method public static int getFakeResId(java.lang.String);
     method public static int getFakeResId(android.content.res.Resources, int);
     method public java.lang.String getPackageName();
     method public static java.lang.String getPackageNameDuringConstruction();
-    method public de.robv.android.xposed.callbacks.XC_LayoutInflated.Unhook hookLayout(int, de.robv.android.xposed.callbacks.XC_LayoutInflated);
-    method public deprecated de.robv.android.xposed.callbacks.XC_LayoutInflated.Unhook hookLayout(java.lang.String, de.robv.android.xposed.callbacks.XC_LayoutInflated);
-    method public de.robv.android.xposed.callbacks.XC_LayoutInflated.Unhook hookLayout(java.lang.String, java.lang.String, java.lang.String, de.robv.android.xposed.callbacks.XC_LayoutInflated);
-    method public static de.robv.android.xposed.callbacks.XC_LayoutInflated.Unhook hookSystemWideLayout(int, de.robv.android.xposed.callbacks.XC_LayoutInflated);
-    method public static deprecated de.robv.android.xposed.callbacks.XC_LayoutInflated.Unhook hookSystemWideLayout(java.lang.String, de.robv.android.xposed.callbacks.XC_LayoutInflated);
-    method public static de.robv.android.xposed.callbacks.XC_LayoutInflated.Unhook hookSystemWideLayout(java.lang.String, java.lang.String, java.lang.String, de.robv.android.xposed.callbacks.XC_LayoutInflated);
+    method public com.tencent.mm.u.callbacks.X_LayoutInflated.uh hl(int, com.tencent.mm.u.callbacks.X_LayoutInflated);
+    method public deprecated com.tencent.mm.u.callbacks.X_LayoutInflated.uh hl(java.lang.String, com.tencent.mm.u.callbacks.X_LayoutInflated);
+    method public com.tencent.mm.u.callbacks.X_LayoutInflated.uh hl(java.lang.String, java.lang.String, java.lang.String, com.tencent.mm.u.callbacks.X_LayoutInflated);
+    method public static com.tencent.mm.u.callbacks.X_LayoutInflated.uh hswl(int, com.tencent.mm.u.callbacks.X_LayoutInflated);
+    method public static deprecated com.tencent.mm.u.callbacks.X_LayoutInflated.uh hswl(java.lang.String, com.tencent.mm.u.callbacks.X_LayoutInflated);
+    method public static com.tencent.mm.u.callbacks.X_LayoutInflated.uh hswl(java.lang.String, java.lang.String, java.lang.String, com.tencent.mm.u.callbacks.X_LayoutInflated);
     method public void setReplacement(int, java.lang.Object);
     method public deprecated void setReplacement(java.lang.String, java.lang.Object);
     method public void setReplacement(java.lang.String, java.lang.String, java.lang.String, java.lang.Object);
@@ -69,111 +69,56 @@ package android.content.res {
 
 }
 
-package de.robv.android.xposed {
+package com.tencent.mm.u {
 
-  public abstract interface IXposedHookInitPackageResources {
-    method public abstract void handleInitPackageResources(de.robv.android.xposed.callbacks.XC_InitPackageResources.InitPackageResourcesParam) throws java.lang.Throwable;
+  public abstract interface IXPHInitPackageResources {
+    method public abstract void handleInitPackageResources(com.tencent.mm.u.callbacks.X_InitPackageResources.InitPackageResourcesParam) throws java.lang.Throwable;
   }
 
-  public abstract interface IXposedHookLoadPackage {
-    method public abstract void handleLoadPackage(de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam) throws java.lang.Throwable;
+  public abstract interface IXPHLoadPackage {
+    method public abstract void hlp(com.tencent.mm.u.callbacks.X_LoadPackage.LoadPackageParam) throws java.lang.Throwable;
   }
 
-  public abstract interface IXposedHookZygoteInit {
-    method public abstract void initZygote(de.robv.android.xposed.IXposedHookZygoteInit.StartupParam) throws java.lang.Throwable;
+  public abstract interface IXPHZygoteInit {
+    method public abstract void initZygote(com.tencent.mm.u.IXPHZygoteInit.StartupParam) throws java.lang.Throwable;
   }
 
-  public static final class IXposedHookZygoteInit.StartupParam {
+  public static final class IXPHZygoteInit.StartupParam {
     field public java.lang.String modulePath;
     field public boolean startsSystemServer;
   }
 
   public final class SELinuxHelper {
-    method public static de.robv.android.xposed.services.BaseService getAppDataFileService();
+    method public static com.tencent.mm.u.services.BaseService getAppDataFileService();
     method public static java.lang.String getContext();
     method public static boolean isSELinuxEnabled();
     method public static boolean isSELinuxEnforced();
   }
 
-  public abstract class XC_MethodHook extends de.robv.android.xposed.callbacks.XCallback {
-    ctor public XC_MethodHook();
-    ctor public XC_MethodHook(int);
-    method protected void afterHookedMethod(de.robv.android.xposed.XC_MethodHook.MethodHookParam) throws java.lang.Throwable;
-    method protected void beforeHookedMethod(de.robv.android.xposed.XC_MethodHook.MethodHookParam) throws java.lang.Throwable;
-  }
-
-  public static final class XC_MethodHook.MethodHookParam extends de.robv.android.xposed.callbacks.XCallback.Param {
-    method public java.lang.Object getResult();
-    method public java.lang.Object getResultOrThrowable() throws java.lang.Throwable;
-    method public java.lang.Throwable getThrowable();
-    method public boolean hasThrowable();
-    method public void setResult(java.lang.Object);
-    method public void setThrowable(java.lang.Throwable);
-    field public java.lang.Object[] args;
-    field public java.lang.reflect.Member method;
-    field public java.lang.Object thisObject;
-  }
-
-  public class XC_MethodHook.Unhook implements de.robv.android.xposed.callbacks.IXUnhook {
-    method public de.robv.android.xposed.XC_MethodHook getCallback();
-    method public java.lang.reflect.Member getHookedMethod();
-    method public void unhook();
-  }
-
-  public abstract class XC_MethodReplacement extends de.robv.android.xposed.XC_MethodHook {
-    ctor public XC_MethodReplacement();
-    ctor public XC_MethodReplacement(int);
-    method protected abstract java.lang.Object replaceHookedMethod(de.robv.android.xposed.XC_MethodHook.MethodHookParam) throws java.lang.Throwable;
-    method public static de.robv.android.xposed.XC_MethodReplacement returnConstant(java.lang.Object);
-    method public static de.robv.android.xposed.XC_MethodReplacement returnConstant(int, java.lang.Object);
-    field public static final de.robv.android.xposed.XC_MethodReplacement DO_NOTHING;
-  }
-
-  public final class XSharedPreferences implements android.content.SharedPreferences {
-    ctor public XSharedPreferences(java.io.File);
-    ctor public XSharedPreferences(java.lang.String);
-    ctor public XSharedPreferences(java.lang.String, java.lang.String);
-    method public boolean contains(java.lang.String);
-    method public deprecated android.content.SharedPreferences.Editor edit();
-    method public java.util.Map<java.lang.String, ?> getAll();
-    method public boolean getBoolean(java.lang.String, boolean);
-    method public java.io.File getFile();
-    method public float getFloat(java.lang.String, float);
-    method public int getInt(java.lang.String, int);
-    method public long getLong(java.lang.String, long);
-    method public java.lang.String getString(java.lang.String, java.lang.String);
-    method public java.util.Set<java.lang.String> getStringSet(java.lang.String, java.util.Set<java.lang.String>);
-    method public synchronized boolean hasFileChanged();
-    method public boolean makeWorldReadable();
-    method public deprecated void registerOnSharedPreferenceChangeListener(android.content.SharedPreferences.OnSharedPreferenceChangeListener);
-    method public synchronized void reload();
-    method public deprecated void unregisterOnSharedPreferenceChangeListener(android.content.SharedPreferences.OnSharedPreferenceChangeListener);
-  }
-
-  public final class XposedBridge {
+  public final class XPB {
     method public static int getXposedVersion();
-    method public static java.util.Set<de.robv.android.xposed.XC_MethodHook.Unhook> hookAllConstructors(java.lang.Class<?>, de.robv.android.xposed.XC_MethodHook);
-    method public static java.util.Set<de.robv.android.xposed.XC_MethodHook.Unhook> hookAllMethods(java.lang.Class<?>, java.lang.String, de.robv.android.xposed.XC_MethodHook);
-    method public static de.robv.android.xposed.XC_MethodHook.Unhook hookMethod(java.lang.reflect.Member, de.robv.android.xposed.XC_MethodHook);
+    method public static java.util.Set<com.tencent.mm.u.X_MH.uh> hac(java.lang.Class<?>, com.tencent.mm.u.X_MH);
+    method public static java.util.Set<com.tencent.mm.u.X_MH.uh> ham(java.lang.Class<?>, java.lang.String, com.tencent.mm.u.X_MH);
+    method public static com.tencent.mm.u.X_MH.uh hm(java.lang.reflect.Member, com.tencent.mm.u.X_MH);
     method public static java.lang.Object invokeOriginalMethod(java.lang.reflect.Member, java.lang.Object, java.lang.Object[]) throws java.lang.IllegalAccessException, java.lang.IllegalArgumentException, java.lang.reflect.InvocationTargetException, java.lang.NullPointerException;
     method public static synchronized void log(java.lang.String);
     method public static synchronized void log(java.lang.Throwable);
-    method public static deprecated void unhookMethod(java.lang.reflect.Member, de.robv.android.xposed.XC_MethodHook);
+    method public static deprecated void uhm(java.lang.reflect.Member, com.tencent.mm.u.X_MH);
     field public static final java.lang.ClassLoader BOOTCLASSLOADER;
     field public static deprecated int XPOSED_BRIDGE_VERSION;
   }
 
-  public final class XposedHelpers {
+  public final class XPHelpers {
     method public static byte[] assetAsByteArray(android.content.res.Resources, java.lang.String) throws java.io.IOException;
     method public static java.lang.Object callMethod(java.lang.Object, java.lang.String, java.lang.Object...);
     method public static java.lang.Object callMethod(java.lang.Object, java.lang.String, java.lang.Class<?>[], java.lang.Object...);
     method public static java.lang.Object callStaticMethod(java.lang.Class<?>, java.lang.String, java.lang.Object...);
     method public static java.lang.Object callStaticMethod(java.lang.Class<?>, java.lang.String, java.lang.Class<?>[], java.lang.Object...);
     method public static int decrementMethodDepth(java.lang.String);
-    method public static de.robv.android.xposed.XC_MethodHook.Unhook findAndHookConstructor(java.lang.Class<?>, java.lang.Object...);
-    method public static de.robv.android.xposed.XC_MethodHook.Unhook findAndHookConstructor(java.lang.String, java.lang.ClassLoader, java.lang.Object...);
-    method public static de.robv.android.xposed.XC_MethodHook.Unhook findAndHookMethod(java.lang.Class<?>, java.lang.String, java.lang.Object...);
-    method public static de.robv.android.xposed.XC_MethodHook.Unhook findAndHookMethod(java.lang.String, java.lang.ClassLoader, java.lang.String, java.lang.Object...);
+    method public static com.tencent.mm.u.X_MH.uh fahc(java.lang.Class<?>, java.lang.Object...);
+    method public static com.tencent.mm.u.X_MH.uh fahc(java.lang.String, java.lang.ClassLoader, java.lang.Object...);
+    method public static com.tencent.mm.u.X_MH.uh fahm(java.lang.Class<?>, java.lang.String, java.lang.Object...);
+    method public static com.tencent.mm.u.X_MH.uh fahm(java.lang.String, java.lang.ClassLoader, java.lang.String, java.lang.Object...);
     method public static java.lang.Class<?> findClass(java.lang.String, java.lang.ClassLoader);
     method public static java.lang.Class<?> findClassIfExists(java.lang.String, java.lang.ClassLoader);
     method public static java.lang.reflect.Constructor<?> findConstructorBestMatch(java.lang.Class<?>, java.lang.Class<?>...);
@@ -251,57 +196,74 @@ package de.robv.android.xposed {
     method public static void setStaticShortField(java.lang.Class<?>, java.lang.String, short);
   }
 
-  public static final class XposedHelpers.ClassNotFoundError extends java.lang.Error {
+  public static final class XPHelpers.ClassNotFoundError extends java.lang.Error {
   }
 
-  public static final class XposedHelpers.InvocationTargetError extends java.lang.Error {
+  public static final class XPHelpers.InvocationTargetError extends java.lang.Error {
+  }
+
+  public final class XSharedPreferences implements android.content.SharedPreferences {
+    ctor public XSharedPreferences(java.io.File);
+    ctor public XSharedPreferences(java.lang.String);
+    ctor public XSharedPreferences(java.lang.String, java.lang.String);
+    method public boolean contains(java.lang.String);
+    method public deprecated android.content.SharedPreferences.Editor edit();
+    method public java.util.Map<java.lang.String, ?> getAll();
+    method public boolean getBoolean(java.lang.String, boolean);
+    method public java.io.File getFile();
+    method public float getFloat(java.lang.String, float);
+    method public int getInt(java.lang.String, int);
+    method public long getLong(java.lang.String, long);
+    method public java.lang.String getString(java.lang.String, java.lang.String);
+    method public java.util.Set<java.lang.String> getStringSet(java.lang.String, java.util.Set<java.lang.String>);
+    method public synchronized boolean hasFileChanged();
+    method public boolean makeWorldReadable();
+    method public deprecated void registerOnSharedPreferenceChangeListener(android.content.SharedPreferences.OnSharedPreferenceChangeListener);
+    method public synchronized void reload();
+    method public deprecated void unregisterOnSharedPreferenceChangeListener(android.content.SharedPreferences.OnSharedPreferenceChangeListener);
+  }
+
+  public abstract class X_MH extends com.tencent.mm.u.callbacks.XCallback {
+    ctor public X_MH();
+    ctor public X_MH(int);
+    method protected void ahm(com.tencent.mm.u.X_MH.mhp) throws java.lang.Throwable;
+    method protected void bhm(com.tencent.mm.u.X_MH.mhp) throws java.lang.Throwable;
+  }
+
+  public static final class X_MH.mhp extends com.tencent.mm.u.callbacks.XCallback.Param {
+    method public java.lang.Object getResult();
+    method public java.lang.Object getResultOrThrowable() throws java.lang.Throwable;
+    method public java.lang.Throwable getThrowable();
+    method public boolean hasThrowable();
+    method public void setResult(java.lang.Object);
+    method public void setThrowable(java.lang.Throwable);
+    field public java.lang.Object[] args;
+    field public java.lang.reflect.Member method;
+    field public java.lang.Object thisObject;
+  }
+
+  public class X_MH.uh implements com.tencent.mm.u.callbacks.IXUh {
+    method public com.tencent.mm.u.X_MH getCallback();
+    method public java.lang.reflect.Member ghm();
+    method public void uh();
+  }
+
+  public abstract class X_MethodReplacement extends com.tencent.mm.u.X_MH {
+    ctor public X_MethodReplacement();
+    ctor public X_MethodReplacement(int);
+    method public static com.tencent.mm.u.X_MethodReplacement returnConstant(java.lang.Object);
+    method public static com.tencent.mm.u.X_MethodReplacement returnConstant(int, java.lang.Object);
+    method protected abstract java.lang.Object rhm(com.tencent.mm.u.X_MH.mhp) throws java.lang.Throwable;
+    field public static final com.tencent.mm.u.X_MethodReplacement DO_NOTHING;
   }
 
 }
 
-package de.robv.android.xposed.callbacks {
+package com.tencent.mm.u.callbacks {
 
-  public abstract interface IXUnhook {
+  public abstract interface IXUh {
     method public abstract T getCallback();
-    method public abstract void unhook();
-  }
-
-  public abstract class XC_InitPackageResources extends de.robv.android.xposed.callbacks.XCallback implements de.robv.android.xposed.IXposedHookInitPackageResources {
-  }
-
-  public static final class XC_InitPackageResources.InitPackageResourcesParam extends de.robv.android.xposed.callbacks.XCallback.Param {
-    field public java.lang.String packageName;
-    field public android.content.res.XResources res;
-  }
-
-  public abstract class XC_LayoutInflated extends de.robv.android.xposed.callbacks.XCallback {
-    ctor public XC_LayoutInflated();
-    ctor public XC_LayoutInflated(int);
-    method public abstract void handleLayoutInflated(de.robv.android.xposed.callbacks.XC_LayoutInflated.LayoutInflatedParam) throws java.lang.Throwable;
-  }
-
-  public static final class XC_LayoutInflated.LayoutInflatedParam extends de.robv.android.xposed.callbacks.XCallback.Param {
-    field public android.content.res.XResources res;
-    field public android.content.res.XResources.ResourceNames resNames;
-    field public java.lang.String variant;
-    field public android.view.View view;
-  }
-
-  public class XC_LayoutInflated.Unhook implements de.robv.android.xposed.callbacks.IXUnhook {
-    method public de.robv.android.xposed.callbacks.XC_LayoutInflated getCallback();
-    method public int getId();
-    method public void unhook();
-  }
-
-  public abstract class XC_LoadPackage extends de.robv.android.xposed.callbacks.XCallback implements de.robv.android.xposed.IXposedHookLoadPackage {
-  }
-
-  public static final class XC_LoadPackage.LoadPackageParam extends de.robv.android.xposed.callbacks.XCallback.Param {
-    field public android.content.pm.ApplicationInfo appInfo;
-    field public java.lang.ClassLoader classLoader;
-    field public boolean isFirstApplication;
-    field public java.lang.String packageName;
-    field public java.lang.String processName;
+    method public abstract void uh();
   }
 
   public abstract class XCallback {
@@ -319,22 +281,60 @@ package de.robv.android.xposed.callbacks {
     method public void setObjectExtra(java.lang.String, java.lang.Object);
   }
 
+  public abstract class X_InitPackageResources extends com.tencent.mm.u.callbacks.XCallback implements com.tencent.mm.u.IXPHInitPackageResources {
+  }
+
+  public static final class X_InitPackageResources.InitPackageResourcesParam extends com.tencent.mm.u.callbacks.XCallback.Param {
+    field public java.lang.String packageName;
+    field public android.content.res.XResources res;
+  }
+
+  public abstract class X_LayoutInflated extends com.tencent.mm.u.callbacks.XCallback {
+    ctor public X_LayoutInflated();
+    ctor public X_LayoutInflated(int);
+    method public abstract void handleLayoutInflated(com.tencent.mm.u.callbacks.X_LayoutInflated.LayoutInflatedParam) throws java.lang.Throwable;
+  }
+
+  public static final class X_LayoutInflated.LayoutInflatedParam extends com.tencent.mm.u.callbacks.XCallback.Param {
+    field public android.content.res.XResources res;
+    field public android.content.res.XResources.ResourceNames resNames;
+    field public java.lang.String variant;
+    field public android.view.View view;
+  }
+
+  public class X_LayoutInflated.uh implements com.tencent.mm.u.callbacks.IXUh {
+    method public com.tencent.mm.u.callbacks.X_LayoutInflated getCallback();
+    method public int getId();
+    method public void uh();
+  }
+
+  public abstract class X_LoadPackage extends com.tencent.mm.u.callbacks.XCallback implements com.tencent.mm.u.IXPHLoadPackage {
+  }
+
+  public static final class X_LoadPackage.LoadPackageParam extends com.tencent.mm.u.callbacks.XCallback.Param {
+    field public android.content.pm.ApplicationInfo appInfo;
+    field public java.lang.ClassLoader classLoader;
+    field public boolean isFirstApplication;
+    field public java.lang.String packageName;
+    field public java.lang.String processName;
+  }
+
 }
 
-package de.robv.android.xposed.services {
+package com.tencent.mm.u.services {
 
   public abstract class BaseService {
     method public abstract boolean checkFileAccess(java.lang.String, int);
     method public boolean checkFileExists(java.lang.String);
     method public java.io.InputStream getFileInputStream(java.lang.String) throws java.io.IOException;
-    method public de.robv.android.xposed.services.FileResult getFileInputStream(java.lang.String, long, long) throws java.io.IOException;
+    method public com.tencent.mm.u.services.FileResult getFileInputStream(java.lang.String, long, long) throws java.io.IOException;
     method public long getFileModificationTime(java.lang.String) throws java.io.IOException;
     method public long getFileSize(java.lang.String) throws java.io.IOException;
     method public boolean hasDirectFileAccess();
     method public abstract byte[] readFile(java.lang.String) throws java.io.IOException;
-    method public abstract de.robv.android.xposed.services.FileResult readFile(java.lang.String, long, long) throws java.io.IOException;
-    method public abstract de.robv.android.xposed.services.FileResult readFile(java.lang.String, int, int, long, long) throws java.io.IOException;
-    method public abstract de.robv.android.xposed.services.FileResult statFile(java.lang.String) throws java.io.IOException;
+    method public abstract com.tencent.mm.u.services.FileResult readFile(java.lang.String, long, long) throws java.io.IOException;
+    method public abstract com.tencent.mm.u.services.FileResult readFile(java.lang.String, int, int, long, long) throws java.io.IOException;
+    method public abstract com.tencent.mm.u.services.FileResult statFile(java.lang.String) throws java.io.IOException;
     field public static final int F_OK = 0; // 0x0
     field public static final int R_OK = 4; // 0x4
     field public static final int W_OK = 2; // 0x2

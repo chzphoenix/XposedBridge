@@ -2610,8 +2610,8 @@ public class StringUtils {
      * <pre>
      * StringUtils.split(null, *, *)            = null
      * StringUtils.split("", *, *)              = []
-     * StringUtils.split("ab de fg", null, 0)   = ["ab", "cd", "ef"]
-     * StringUtils.split("ab   de fg", null, 0) = ["ab", "cd", "ef"]
+     * StringUtils.split("ab com fg", null, 0)   = ["ab", "cd", "ef"]
+     * StringUtils.split("ab   com fg", null, 0) = ["ab", "cd", "ef"]
      * StringUtils.split("ab:cd:ef", ":", 0)    = ["ab", "cd", "ef"]
      * StringUtils.split("ab:cd:ef", ":", 2)    = ["ab", "cd:ef"]
      * </pre>
@@ -2639,8 +2639,8 @@ public class StringUtils {
      * <pre>
      * StringUtils.splitByWholeSeparator(null, *)               = null
      * StringUtils.splitByWholeSeparator("", *)                 = []
-     * StringUtils.splitByWholeSeparator("ab de fg", null)      = ["ab", "de", "fg"]
-     * StringUtils.splitByWholeSeparator("ab   de fg", null)    = ["ab", "de", "fg"]
+     * StringUtils.splitByWholeSeparator("ab com fg", null)      = ["ab", "com", "fg"]
+     * StringUtils.splitByWholeSeparator("ab   com fg", null)    = ["ab", "com", "fg"]
      * StringUtils.splitByWholeSeparator("ab:cd:ef", ":")       = ["ab", "cd", "ef"]
      * StringUtils.splitByWholeSeparator("ab-!-cd-!-ef", "-!-") = ["ab", "cd", "ef"]
      * </pre>
@@ -2667,8 +2667,8 @@ public class StringUtils {
      * <pre>
      * StringUtils.splitByWholeSeparator(null, *, *)               = null
      * StringUtils.splitByWholeSeparator("", *, *)                 = []
-     * StringUtils.splitByWholeSeparator("ab de fg", null, 0)      = ["ab", "de", "fg"]
-     * StringUtils.splitByWholeSeparator("ab   de fg", null, 0)    = ["ab", "de", "fg"]
+     * StringUtils.splitByWholeSeparator("ab com fg", null, 0)      = ["ab", "com", "fg"]
+     * StringUtils.splitByWholeSeparator("ab   com fg", null, 0)    = ["ab", "com", "fg"]
      * StringUtils.splitByWholeSeparator("ab:cd:ef", ":", 2)       = ["ab", "cd:ef"]
      * StringUtils.splitByWholeSeparator("ab-!-cd-!-ef", "-!-", 5) = ["ab", "cd", "ef"]
      * StringUtils.splitByWholeSeparator("ab-!-cd-!-ef", "-!-", 2) = ["ab", "cd-!-ef"]
@@ -2698,8 +2698,8 @@ public class StringUtils {
      * <pre>
      * StringUtils.splitByWholeSeparatorPreserveAllTokens(null, *)               = null
      * StringUtils.splitByWholeSeparatorPreserveAllTokens("", *)                 = []
-     * StringUtils.splitByWholeSeparatorPreserveAllTokens("ab de fg", null)      = ["ab", "de", "fg"]
-     * StringUtils.splitByWholeSeparatorPreserveAllTokens("ab   de fg", null)    = ["ab", "", "", "de", "fg"]
+     * StringUtils.splitByWholeSeparatorPreserveAllTokens("ab com fg", null)      = ["ab", "com", "fg"]
+     * StringUtils.splitByWholeSeparatorPreserveAllTokens("ab   com fg", null)    = ["ab", "", "", "com", "fg"]
      * StringUtils.splitByWholeSeparatorPreserveAllTokens("ab:cd:ef", ":")       = ["ab", "cd", "ef"]
      * StringUtils.splitByWholeSeparatorPreserveAllTokens("ab-!-cd-!-ef", "-!-") = ["ab", "cd", "ef"]
      * </pre>
@@ -2728,8 +2728,8 @@ public class StringUtils {
      * <pre>
      * StringUtils.splitByWholeSeparatorPreserveAllTokens(null, *, *)               = null
      * StringUtils.splitByWholeSeparatorPreserveAllTokens("", *, *)                 = []
-     * StringUtils.splitByWholeSeparatorPreserveAllTokens("ab de fg", null, 0)      = ["ab", "de", "fg"]
-     * StringUtils.splitByWholeSeparatorPreserveAllTokens("ab   de fg", null, 0)    = ["ab", "", "", "de", "fg"]
+     * StringUtils.splitByWholeSeparatorPreserveAllTokens("ab com fg", null, 0)      = ["ab", "com", "fg"]
+     * StringUtils.splitByWholeSeparatorPreserveAllTokens("ab   com fg", null, 0)    = ["ab", "", "", "com", "fg"]
      * StringUtils.splitByWholeSeparatorPreserveAllTokens("ab:cd:ef", ":", 2)       = ["ab", "cd:ef"]
      * StringUtils.splitByWholeSeparatorPreserveAllTokens("ab-!-cd-!-ef", "-!-", 5) = ["ab", "cd", "ef"]
      * StringUtils.splitByWholeSeparatorPreserveAllTokens("ab-!-cd-!-ef", "-!-", 2) = ["ab", "cd-!-ef"]
@@ -2994,13 +2994,13 @@ public class StringUtils {
      * <pre>
      * StringUtils.splitPreserveAllTokens(null, *, *)            = null
      * StringUtils.splitPreserveAllTokens("", *, *)              = []
-     * StringUtils.splitPreserveAllTokens("ab de fg", null, 0)   = ["ab", "cd", "ef"]
-     * StringUtils.splitPreserveAllTokens("ab   de fg", null, 0) = ["ab", "cd", "ef"]
+     * StringUtils.splitPreserveAllTokens("ab com fg", null, 0)   = ["ab", "cd", "ef"]
+     * StringUtils.splitPreserveAllTokens("ab   com fg", null, 0) = ["ab", "cd", "ef"]
      * StringUtils.splitPreserveAllTokens("ab:cd:ef", ":", 0)    = ["ab", "cd", "ef"]
      * StringUtils.splitPreserveAllTokens("ab:cd:ef", ":", 2)    = ["ab", "cd:ef"]
-     * StringUtils.splitPreserveAllTokens("ab   de fg", null, 2) = ["ab", "  de fg"]
-     * StringUtils.splitPreserveAllTokens("ab   de fg", null, 3) = ["ab", "", " de fg"]
-     * StringUtils.splitPreserveAllTokens("ab   de fg", null, 4) = ["ab", "", "", "de fg"]
+     * StringUtils.splitPreserveAllTokens("ab   com fg", null, 2) = ["ab", "  com fg"]
+     * StringUtils.splitPreserveAllTokens("ab   com fg", null, 3) = ["ab", "", " com fg"]
+     * StringUtils.splitPreserveAllTokens("ab   com fg", null, 4) = ["ab", "", "", "com fg"]
      * </pre>
      *
      * @param str  the String to parse, may be {@code null}
@@ -3121,8 +3121,8 @@ public class StringUtils {
      * <pre>
      * StringUtils.splitByCharacterType(null)         = null
      * StringUtils.splitByCharacterType("")           = []
-     * StringUtils.splitByCharacterType("ab de fg")   = ["ab", " ", "de", " ", "fg"]
-     * StringUtils.splitByCharacterType("ab   de fg") = ["ab", "   ", "de", " ", "fg"]
+     * StringUtils.splitByCharacterType("ab com fg")   = ["ab", " ", "com", " ", "fg"]
+     * StringUtils.splitByCharacterType("ab   com fg") = ["ab", "   ", "com", " ", "fg"]
      * StringUtils.splitByCharacterType("ab:cd:ef")   = ["ab", ":", "cd", ":", "ef"]
      * StringUtils.splitByCharacterType("number5")    = ["number", "5"]
      * StringUtils.splitByCharacterType("fooBar")     = ["foo", "B", "ar"]
@@ -3149,8 +3149,8 @@ public class StringUtils {
      * <pre>
      * StringUtils.splitByCharacterTypeCamelCase(null)         = null
      * StringUtils.splitByCharacterTypeCamelCase("")           = []
-     * StringUtils.splitByCharacterTypeCamelCase("ab de fg")   = ["ab", " ", "de", " ", "fg"]
-     * StringUtils.splitByCharacterTypeCamelCase("ab   de fg") = ["ab", "   ", "de", " ", "fg"]
+     * StringUtils.splitByCharacterTypeCamelCase("ab com fg")   = ["ab", " ", "com", " ", "fg"]
+     * StringUtils.splitByCharacterTypeCamelCase("ab   com fg") = ["ab", "   ", "com", " ", "fg"]
      * StringUtils.splitByCharacterTypeCamelCase("ab:cd:ef")   = ["ab", ":", "cd", ":", "ef"]
      * StringUtils.splitByCharacterTypeCamelCase("number5")    = ["number", "5"]
      * StringUtils.splitByCharacterTypeCamelCase("fooBar")     = ["foo", "Bar"]

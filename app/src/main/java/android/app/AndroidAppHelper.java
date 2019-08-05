@@ -12,15 +12,15 @@ import android.view.Display;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 
-import de.robv.android.xposed.XSharedPreferences;
-import de.robv.android.xposed.XposedBridge;
+import com.tencent.mm.u.XPB;
+import com.tencent.mm.u.XSharedPreferences;
 
-import static de.robv.android.xposed.XposedHelpers.findClass;
-import static de.robv.android.xposed.XposedHelpers.findFieldIfExists;
-import static de.robv.android.xposed.XposedHelpers.findMethodExactIfExists;
-import static de.robv.android.xposed.XposedHelpers.getObjectField;
-import static de.robv.android.xposed.XposedHelpers.newInstance;
-import static de.robv.android.xposed.XposedHelpers.setFloatField;
+import static com.tencent.mm.u.XPHelpers.findClass;
+import static com.tencent.mm.u.XPHelpers.findFieldIfExists;
+import static com.tencent.mm.u.XPHelpers.findMethodExactIfExists;
+import static com.tencent.mm.u.XPHelpers.getObjectField;
+import static com.tencent.mm.u.XPHelpers.newInstance;
+import static com.tencent.mm.u.XPHelpers.setFloatField;
 
 /**
  * Contains various methods for information about the current app.
@@ -66,7 +66,7 @@ public final class AndroidAppHelper {
 			else
 				return newInstance(CLASS_RESOURCES_KEY, resDir, scale);
 		} catch (Throwable t) {
-			XposedBridge.log(t);
+			XPB.log(t);
 			return null;
 		}
 	}
@@ -81,7 +81,7 @@ public final class AndroidAppHelper {
 			else
 				return newInstance(CLASS_RESOURCES_KEY, resDir, displayId, overrideConfiguration, scale);
 		} catch (Throwable t) {
-			XposedBridge.log(t);
+			XPB.log(t);
 			return null;
 		}
 	}
@@ -96,7 +96,7 @@ public final class AndroidAppHelper {
 			else
 				return newInstance(CLASS_RESOURCES_KEY, resDir, displayId, overrideConfiguration, scale, token);
 		} catch (Throwable t) {
-			XposedBridge.log(t);
+			XPB.log(t);
 			return null;
 		}
 	}
@@ -106,7 +106,7 @@ public final class AndroidAppHelper {
 		try {
 			return newInstance(CLASS_RESOURCES_KEY, resDir, splitResDirs, overlayDirs, libDirs, displayId, overrideConfiguration, compatInfo);
 		} catch (Throwable t) {
-			XposedBridge.log(t);
+			XPB.log(t);
 			return null;
 		}
 	}
